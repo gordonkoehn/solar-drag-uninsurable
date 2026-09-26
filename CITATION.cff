@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this data or code, please cite it as below."
+title: "Solar drag is uninsurable: data and code"
+type: software
+authors:
+  - family-names: Koehn
+    given-names: Gordon J.
+license: MIT
+repository-code: "https://github.com/gordonkoehn/solar-drag-uninsurable"
+url: "https://g15n.substack.com"
+abstract: >-
+  Data and code behind the post 'Solar drag is uninsurable': satellite lifetime runs under
+  storms and a stronger or weaker solar cycle, the 128 published forecasts of Cycle 25, and
+  the sunspot record, showing why drag from the solar cycle cannot be insured.
+keywords:
+  - space weather
+  - atmospheric drag
+  - satellite lifetime
+  - solar cycle
+  - space insurance
+version: 1.0.0
+date-released: "2026-09-26"

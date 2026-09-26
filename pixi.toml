@@ -1,0 +1,37 @@
+[workspace]
+name = "solar-drag-uninsurable"
+description = "Data and code behind the post 'Solar drag is uninsurable' (g15n.substack.com)."
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "osx-64", "linux-64"]
+
+[dependencies]
+python = "3.11.*"
+numpy = ">=1.24"
+polars = ">=1.0"
+scipy = ">=1.10"
+matplotlib = ">=3.7"
+
+[tasks]
+fetch = "python scripts/fetch_data.py"
+check = { cmd = "python scripts/check_numbers.py", depends-on = ["fetch"] }
+figures = { cmd = "python scripts/figures.py", depends-on = ["fetch"] }
+
+# The one-run lifetime model needs Java, orekit and the pinned orekit physics data
+# (a ~1 GB git checkout), so it lives in its own environment:  pixi run -e model ...
+[feature.model.dependencies]
+openjdk = "21.*"
+
+[feature.model.pypi-dependencies]
+orekit-jpype = "==13.1.7.0"  # exact: 13.1.8 moves the 550 km result by ~30 days (see README)
+# pinned: this revision's CelesTrak space-weather file is the solar input behind data/fan.csv
+orekitdata = { git = "https://gitlab.orekit.org/orekit/orekit-data.git", rev = "315cce51de50b277c8885eeb3877267a882d2740" }
+
+[feature.model.tasks]
+lifetime = "python scripts/lifetime_one.py"
+
+[feature.dev.dependencies]
+ruff = "*"
+
+[environments]
+model = ["model"]
+dev = ["dev"]

@@ -1,0 +1,85 @@
+# Solar drag is uninsurable
+
+Data and code behind the post **[Solar drag is uninsurable — and not because the risk is small](https://g15n.substack.com)**
+(g15n, 2026). Every number and figure in the post reproduces from this repository.
+
+> Storms, the risk I set out to insure, move a small satellite's fall by weeks. The solar
+> cycle moves it by years, gives one data point every eleven years, and hits every satellite
+> at once. Insurers price earthquakes by counting them; the solar cycle can barely be counted.
+
+| | |
+|---|---|
+| ![Figure 0](figures/fig0_cover.png) | ![Figure 1](figures/fig1_fan.png) |
+| ![Figure 2](figures/fig2_forecasters.png) | ![Figure 3](figures/fig3_sunspots.png) |
+
+## Reproduce
+
+Needs [pixi](https://pixi.sh). Everything else is pinned.
+
+```bash
+pixi run check      # downloads the sunspot record, recomputes every number in the post
+pixi run figures    # rebuilds the four figures into figures/
+```
+
+`check` prints each claim, the value recomputed from `data/`, and `ok` or `BAD`; it exits
+non-zero on any mismatch.
+
+To recompute a point of Figure 1 from the physics (Java, orekit and a pinned ~1 GB checkout of
+the orekit physics data, installed on first use):
+
+```bash
+pixi run -e model lifetime --altitude 550 --scale 1.25 --start 2035-01-16
+# 550 km from 2035-01-16, solar amplitude x1.25: 3.6204 years   (data/fan.csv: 3.6204)
+```
+
+**Numerical note.** orekit-jpype is pinned to exactly 13.1.7.0, the version behind
+`data/fan.csv`. The next patch release, 13.1.8.0, gives 3.5334 years for the same call: 32 days
+(2.4%) shorter. Every comparison in the post is made within one version (the storm effect is
+storm runs minus storm-free runs; the band is three runs of the same engine), so this shifts
+all lines together rather than the gaps between them. It is still a reminder that single
+lifetime numbers carry a few percent of engine uncertainty on top of everything else.
+
+## What each claim rests on
+
+| Claim in the post | Data | Code |
+|---|---|---|
+| Storms bring a satellite at 550 km down 17 to 75 days sooner | `storm_mc_550km.csv`, `storm_free_baselines_550km.csv` | `data.storm_effect_days` |
+| The solar cycle moves it by 1,243 to 2,505 days; the band is 34–71× wider | `fan.csv` | `check_numbers.py`, `lifetime_one.py` |
+| For a mission ending Jan 2035, the band straddles the 5-year line at ~520–560 km | `fan.csv` | `check_numbers.py` |
+| 106 of 128 forecasts too low; 28 of 29 in 2020–21; 14 of 16 in 2024 | `karak_c25_predictions.csv` | `check_numbers.py` |
+| 24 complete cycles since 1755, peaks 81–285, average 179, sd a third of it | SILSO (downloaded) | `data.cycle_peaks` |
+| In more than half of past cycles the peak missed the prior average by >25% | SILSO (downloaded) | `check_numbers.py` |
+| 367 intense storms (Dst < −100 nT) since 1957 | `dst_storm_peaks.csv` | `check_numbers.py` |
+| About a third (1,262 of 3,642) of smaller operators' satellites fly at 500–600 km | `leo_payloads_2026-08-28.csv` | `check_numbers.py` |
+
+## Method in brief
+
+- **Lifetime model:** orekit (Apache-2.0) via orekit-jpype; semi-analytical DSST mean elements
+  to 300 km, then numerical propagation to re-entry at 78 km; NRLMSISE-00 atmosphere; zonal
+  gravity to J6. Checked against one real re-entry (CIRBE) as a hindcast on observed space
+  weather (that check is in the research code, not reproduced here).
+- **Satellite:** circular orbit, 51.6° inclination, area-to-mass 0.014 m²/kg (the median 1U
+  CubeSat in Lisy 2025), no propulsion. Decay depends on the spacecraft only through this ratio.
+- **Solar scenarios:** the CelesTrak space-weather file's predicted F10.7 above its 68.6 sfu
+  quiet level, scaled ×0.75 and ×1.25 for every future day; the observed record (to 3 June 2026)
+  and geomagnetic Ap are untouched. One common factor per scenario: a coherent scenario, not a
+  probability band. Cycle timing stays at the file's fixed 11 years.
+- **Storm effect:** 100 simulated storm histories per case, drawn from an extreme-value fit to
+  hourly Kyoto Dst with a rate that follows the solar cycle; the effect is the median life lost
+  against the storm-free run. The storm model itself is not part of this repository; its
+  outputs are (`storm_mc_550km.csv`).
+- **Forecasts:** Karak 2026, Table 1; forecasts published up to 2015 scaled ×1.43 to sunspot
+  number version 2, as in the paper.
+
+## Data sources and credit
+
+- Sunspot numbers: WDC-SILSO, Royal Observatory of Belgium, Brussels (CC BY-NC 4.0).
+- Space weather (F10.7, Ap): CelesTrak (Dr. T.S. Kelso), from NOAA/GFZ sources, via orekit-data.
+- Geomagnetic storms: Dst index, WDC for Geomagnetism, Kyoto.
+- Satellite catalogue: CelesTrak (Dr. T.S. Kelso).
+- Cycle 25 forecasts: B. B. Karak (2026), Reviews of Modern Plasma Physics, arXiv:2604.16183, Table 1.
+
+## Licence
+
+Code: MIT (`LICENSE`). Text and figures: CC BY 4.0; third-party data under its own terms
+(`LICENSE-CONTENT.md`). To cite, see `CITATION.cff`.

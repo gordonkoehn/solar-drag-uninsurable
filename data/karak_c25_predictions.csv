@@ -1,0 +1,129 @@
+who,year,value_raw,err_raw,method,v2_scale,value_v2,err_v2
+Du and Du,2006,111.6,17.4,Descending time of the previous cycle,1.43,159.588,24.881999999999998
+Hamid and Galal,2006,90.7,9.2,Counts and durations of spotless events,1.43,129.701,13.155999999999999
+Kane,2007,119.0,7.5,Extrapolation of spectral components,1.43,170.17,10.725
+Abdusamatov,2007,50.0,15.0,Variations in solar radius or solar constant,1.43,71.5,21.45
+Hiremath,2008,110.0,11.0,Physics-based (oscillator) model,1.43,157.29999999999998,15.729999999999999
+Quassim et al.,2007,116.0,,Neuro-fuzzy approach,1.43,165.88,
+Pishkalo,2008,112.3,33.4,Neural-network-based sunspot prediction,1.43,160.589,47.76199999999999
+Rigozo et al.,2011,132.1,,Extrapolation of spectral components,1.43,188.903,
+Helal and Galal,2013,118.2,,Statistical method of precursors,1.43,169.026,
+Yoshida,2014,115.4,11.9,Sunspot number before the minimum,1.43,165.022,17.017
+Javaraiah,2015,50.0,15.0,Empirical correlations of cycle parameters,1.43,71.5,21.45
+Li et al.,2015,109.1,,Multi-parameter empirical extrapolation,1.43,156.01299999999998,
+Bisoi et al.,2015,56.0,12.0,Declining of solar & interplanetary fields,1.43,80.08,17.16
+Gkana and Zachilas,2016,54.4,,Time series analysis of sunspot number,1.0,54.4,
+Dani and Sulistiani,2019,59.4,22.3,Machine Learning Regression methods,1.0,59.4,22.3
+Kitiashvili,2016,90.0,15.0,Data assimilation with Kalman filter,1.0,90.0,15.0
+Hathaway and Upton,2016,98.9,42.0,Data driven SFT model,1.0,98.9,42.0
+Singh and Bhargawa,2017,102.8,24.6,Using Hurst exponent,1.0,102.8,24.6
+Chae and Kim,2017,153.0,,Autoregressive model,1.0,153.0,
+Kakad et al.,2017,63.0,,Shannon Entropy-Based Prediction,1.0,63.0,
+Upton and Hathaway,2018,107.0,17.0,Data-driven SFT simulations,1.0,107.0,17.0
+Hawkes and Berger,2018,117.0,,Using Magnetic Helicity,1.0,117.0,
+Bhowmik and Nandy,2018,107.63,17.0,Data-driven SFT simulations,1.0,107.63,17.0
+Okoh et al.,2018,122.1,18.2,Hybrid Regression-Neural Network,1.0,122.1,18.2
+Jiang et al.,2018,124.0,31.0,Data-driven SFT simulations,1.0,124.0,31.0
+Attia et al.,2013,90.7,8.0,Regression and correlation-based,1.43,129.701,11.44
+Petrovay et al.,2018,129.0,,Rush-to-the-poles in coronal emission,1.0,129.0,
+Pesnell and Schatten,2018,135.0,25.0,Polar field precursor,1.0,135.0,25.0
+Gopalswamy et al.,2018,148.0,14.0,Proxy of polar field,1.0,148.0,14.0
+Sarp et al.,2018,154.0,12.0,Nonlinear time-series modeling,1.0,154.0,12.0
+Li et al.,2018,168.5,16.3,Solar cycle characteristics,1.0,168.5,16.3
+Sabarinath and Anilkumar,2018,85.0,10.0,Multivariate regression & binary mixture,1.0,85.0,10.0
+Hawkes and Berger,2018,117.3,,Magnetic Helicity as a Precursor,1.0,117.3,
+Okoh et al.,2018,124.0,20.7,Hybrid Regression-Neural Network,1.0,124.0,20.7
+Macario-Rojas et al.,2018,96.98,22.09,Dynamo model with observed data,1.0,96.98,22.09
+Kirov et al.,2018,78.0,,Geomagnetic activity as a precursor,1.0,78.0,
+Covas et al.,2019,57.0,17.0,Neural Network forecast,1.0,57.0,17.0
+Labonville et al.,2019,105.0,21.5,Dynamo with data assimilation,1.0,105.0,21.5
+Dani and Sulistiani,2019,159.4,22.3,Machine Learning based model,1.0,159.4,22.3
+Sello,2019,107.0,10.0,Non-linear dynamic techniques,1.0,107.0,10.0
+Dani and Sulistiani,2019,159.4,22.3,Frequency-domain analysis of sunspot,1.0,159.4,22.3
+Hazra and Choudhuri,2019,139.34,16.0,Polar field and decay rate of cycle,1.0,139.34,16.0
+Han and Yin,2019,228.8,40.5,Neural-network using solar indices,1.0,228.8,40.5
+Dani and Sulistiani,2019,110.2,12.8,ML-Regression methods,1.0,110.2,12.8
+Singh and Bhargawa,2019,89.0,9.0,Hodrick Prescott filtering method,1.0,89.0,9.0
+Pala and Atici,2019,163.7,10.0,Deep Learning Methods,1.0,163.7,10.0
+Kakad et al.,2020,136.9,24.0,Analysis using kernel density estimator,1.0,136.9,24.0
+Svalgaard,2020,128.0,10.0,Polar field at minimum,1.0,128.0,10.0
+Lee,2020,101.44,,"Hybrid Deep Learning Model Solar Cycle Prediction: Challenges, Progress, and Future Perspectives 29",1.0,101.44,
+Benson et al.,2020,107.2,19.75,Deep Neural Networks,1.0,107.2,19.75
+Gon¸ calves et al.,2020,117.0,,Warped Gaussian process regression,1.0,117.0,
+Miao et al.,2020,121.5,32.9,Precursor Method (aa-index),1.0,121.5,32.9
+Bisoi et al.,2020,134.0,11.0,Polar and heliospheric field at 1 AU,1.0,134.0,11.0
+Bisoi and Janardhan,2020,155.0,11.0,Flux cancelled at equator & polar field,1.0,155.0,11.0
+Du,2020,137.8,31.3,Comparing the past similar cycles,1.0,137.8,31.3
+Du,2020,130.0,31.9,Sunspot number before solar minimum,1.0,130.0,31.9
+Du,2020,151.1,16.9,Waldmeier effect,1.0,151.1,16.9
+Kumar et al.,2021,120.0,25.0,Polar field rise rate,1.0,120.0,25.0
+Guo et al.,2021,126.0,,Dynamo model with polar field,1.0,126.0,
+Coban et al.,2021,59.4,,Deep learning technique,1.0,59.4,
+Javaraiah,2021,76.0,12.0,Properties of solar cycle,1.0,76.0,12.0
+Velasco Herrera et al.,2021,95.0,15.0,Machine Learning algorithms,1.0,95.0,15.0
+Courtillot et al.,2021,97.6,7.8,Astronomical ephemeris,1.0,97.6,7.8
+Chowdhury et al.,2021,100.21,15.06,Geomagnetic activity Ap-index,1.0,100.21,15.06
+Burud et al.,2021,104.23,17.35,Spotless days and geomagnetic index,1.0,104.23,17.35
+Wu and Qin,2021,114.5,16.0,Two-parameter modified logistic,1.0,114.5,16.0
+Singh et al.,2021,119.42,23.51,Geomagnetic activity indices,1.0,119.42,23.51
+Janssens,2021,118.0,29.0,Polar faculae,1.0,118.0,29.0
+Xiong et al.,2021,140.2,,Several precursors,1.0,140.2,
+Yan et al.,2021,120.0,27.0,Two-stage Statistical Model,1.0,120.0,27.0
+Pishkalo,2021,121.0,4.0,Polar field near minimum,1.0,121.0,4.0
+Wang et al.,2021,114.3,,long short-term memory deep learning,1.0,114.3,
+Penza et al.,2021,130.0,10.0,Relation of sunspot areas and plages,1.0,130.0,10.0
+Li et al.,2021,175.62,,Deep learning based on sunspot area,1.0,175.62,
+Kakad and Kakad,2021,103.3,15.0,Even-odd pair of solar cycle,1.0,103.3,15.0
+Kumar et al.,2022,137.0,23.0,Rise rate of polar field,1.0,137.0,23.0
+Ahluwalia,2022,126.7,4.7,Sunspot numbers & geomagnetic indices,1.0,126.7,4.7
+Bizzarri et al.,2022,110.0,9.0,Multistep Bayesian Neural network,1.0,110.0,9.0
+Brajˇ sa et al.,2022,121.0,33.0,Activity level 3 yr before minimum,1.0,121.0,33.0
+Du,2022,124.0,30.0,Fitting the solar cycle,1.0,124.0,30.0
+Javaraiah,2022,130.0,12.0,Long-Term Variations in Solar Activity,1.0,130.0,12.0
+Dang et al.,2022,133.47,,Various ML models,1.0,133.47,
+Du,2022,135.5,33.2,Rise rate,1.0,135.5,33.2
+Zhu et al.,2022,147.9,,Optimized Long Short-Term Memory,1.0,147.9,
+Prasad et al.,2022,171.9,3.4,Long short-term memory forecasting,1.0,171.9,3.4
+Efimenko and Lozitsky,2022,184.0,15.0,Rate of increase of solar activity,1.0,184.0,15.0
+Lu et al.,2022,145.3,,Bimodal forecasting model,1.0,145.3,
+Nagovitsyn and Ivanov,2022,147.0,,Gnevyshev-Ohl rule,1.0,147.0,
+Ivanov,2022,181.0,46.0,Cycle length vs amplitude relation,1.0,181.0,46.0
+Chowdhury et al.,2022,160.29,66.06,Non-linear empirical dynamical modelling,1.0,160.29,66.06
+Podladchikova et al.,2022,110.0,26.0,Growth rate of the cycle,1.0,110.0,26.0
+Arregui,2022,190.6,10.0,Bayesian inference,1.0,190.6,10.0
+Koutchmy et al.,2022,226.6,,Polar regions activity,1.0,226.6,
+Espu˜ na Fontcuberta et al.,2023,134.0,8.0,Neural–network based ML technique,1.0,134.0,8.0
+Obridko et al.,2023,125.2,5.6,Extended solar cycle model,1.0,125.2,5.6
+Javaraiah,2023,125.0,11.0,Variations of sunspot area and number,1.0,125.0,11.0
+Upton and Hathaway,2023,134.0,8.0,Curve-fitting and precursors,1.0,134.0,8.0
+Prasad et al.,2023,136.9,,Deep Learning Based Neural Network,1.0,136.9,
+Nagovitsyn and Ivanov,2023,149.0,28.0,Sunspot number 7 yr before minimum,1.0,149.0,28.0
+Becheker et al.,2023,164.0,10.0,Curve fitting,1.0,164.0,10.0
+Zhu et al.,2023,214.4,22.0,Long short-term memory model,1.0,214.4,22.0
+Liu et al.,2023,135.2,,Long short-term memory model,1.0,135.2,
+Raju et al.,2023,206.0,7.6,Supergranular lane and sunspot number,1.0,206.0,7.6
+Aparicio et al.,2023,131.0,32.0,Ascending inflection point,1.0,131.0,32.0
+Pishkalo and Vasiljeva,2023,136.0,36.0,Cycle precursor,1.0,136.0,36.0
+Efimenko and Lozitsky,2023,185.0,18.0,Sunspot number increase rate,1.0,185.0,18.0
+Kalkan et al.,2023,116.6,,Neural networks model,1.0,116.6,
+Arregui,2023,184.0,25.0,Bayesian Interface,1.0,184.0,25.0
+Riley,2023,130.0,,Superposed-epoch analysis 30 Bidya Binay Karak,1.0,130.0,
+Su et al.,2023,133.9,7.2,Deep learning model,1.0,133.9,7.2
+Lozitsky and Efimenko,2023,183.0,23.0,Rise rate of sunspot number,1.0,183.0,23.0
+Su et al.,2024,127.94,6.37,Deep learning models,1.0,127.94,6.37
+Flandez and Munoz,2024,179.0,,Visibility Graph and Hathaway function,1.0,179.0,
+Sharma et al.,2024,112.0,18.0,Geomagnetic precursor,1.0,112.0,18.0
+Rodr´ ıguez et al.,2024,134.2,9.8,Multivariate ML,1.0,134.2,9.8
+He and Zhu,2024,160.0,,ML model,1.0,160.0,
+Kumar,2024,127.16,6.83,Deep learning model,1.0,127.16,6.83
+Petrovay,2024,155.8,20.7,Parametric time series model,1.0,155.8,20.7
+Kumar and Kumar,2023,140.84,,ML model,1.0,140.84,
+Rodr´ ıguez et al.,2024,67.75,6.45,Spectral Analysis & ML model,1.0,67.75,6.45
+Cao et al.,2024,141.55,36.95,ML model,1.0,141.55,36.95
+Pal and Nandy,2024,128.0,20.0,Algebraic quantification of dipole moment,1.0,128.0,20.0
+Luo and Tan,2024,146.7,33.4,Wavelet transform and fitting function,1.0,146.7,33.4
+Xu et al.,2024,193.0,39.0,Physics informed ML,1.0,193.0,39.0
+Pesnell,2024,130.7,0.5,Slope of rising phase,1.0,130.7,0.5
+Jaswal et al.,2024,116.91,2.89,Dipole moment decay rate,1.0,116.91,2.89
+Wang,2024,146.0,21.0,Interplanetary field strength,1.0,146.0,21.0
+Kleeorin et al.,2024,150.0,,Dynamo model & neural network,1.0,150.0,
