@@ -1,5 +1,7 @@
 # Solar drag is uninsurable
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22996332.svg)](https://doi.org/10.5281/zenodo.22996332)
+
 Data and code behind the post **[Solar drag is uninsurable — and not because the risk is small](https://g15n.net/posts/solar-drag-uninsurable)**
 (g15n, 2026). The article itself is in [`paper/`](paper/) (markdown and PDF), and every number and
 figure in it reproduces from this repository.
@@ -94,4 +96,7 @@ lifetime numbers carry a few percent of engine uncertainty on top of everything 
 ## Licence
 
 Code: MIT (`LICENSE`). Text and figures: CC BY 4.0; third-party data under its own terms
-(`LICENSE-CONTENT.md`). To cite, see `CITATION.cff`.
+(`LICENSE-CONTENT.md`).
+
+To cite: Koehn, G. J. (2026). *Solar drag is uninsurable: article, data and code*. Zenodo.
+https://doi.org/10.5281/zenodo.22996332 (this DOI always points to the latest version; see also `CITATION.cff`).
