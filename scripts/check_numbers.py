@@ -65,10 +65,11 @@ claim(
     f"{min(ratios):.1f}x - {max(ratios):.1f}x",
     30 <= min(ratios) <= 35 and 68 <= max(ratios) <= 73,
 )
+strong_ratios = [one_sided[0], one_sided[2]]  # stronger Sun (sooner) / storms, min and max epoch
 claim(
-    "even a one-sided miss moves it > 10x as far as storms",
-    f"smallest {min(one_sided):.1f}x",
-    min(one_sided) > 10,
+    "like for like, a stronger Sun takes ~20x the orbit life storms do",
+    f"{strong_ratios[0]:.1f}x / {strong_ratios[1]:.1f}x",
+    all(18 <= r <= 22 for r in strong_ratios),
 )
 w = data.fan_wide("max")
 alt = w["altitude_km"].to_numpy().astype(float)

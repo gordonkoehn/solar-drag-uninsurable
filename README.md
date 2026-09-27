@@ -44,7 +44,7 @@ lifetime numbers carry a few percent of engine uncertainty on top of everything 
 | Claim in the post | Data | Code |
 |---|---|---|
 | At 550 km, typical storms bring a satellite down 17 days sooner (mission ends at solar minimum) or 75 days (maximum) | `storm_mc_550km.csv`, `storm_free_baselines_550km.csv` | `data.storm_effect_days` |
-| The Sun spreads the fall over a window 3 years 5 months to 6 years 10 months wide (1,243 / 2,505 days), roughly 30–70× the storm effect | `fan.csv` | `check_numbers.py`, `lifetime_one.py` |
+| The Sun spreads the fall over a window 3 years 5 months to 6 years 10 months wide (1,243 / 2,505 days), roughly 30–70× the storm effect; a quarter-stronger Sun alone takes ~20× what storms take | `fan.csv` | `check_numbers.py`, `lifetime_one.py` |
 | For a mission ending Jan 2035, the band straddles the 5-year line at ~520–560 km | `fan.csv` | `check_numbers.py` |
 | 106 of 128 forecasts too low; 28 of 29 in 2020–21; 14 of 16 in 2024 | `karak_c25_predictions.csv` | `check_numbers.py` |
 | 24 complete cycles since 1755, peaks 81–285, average 179, sd a third of it | SILSO (downloaded) | `data.cycle_peaks` |
