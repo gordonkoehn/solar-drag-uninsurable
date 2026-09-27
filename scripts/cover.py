@@ -1,10 +1,10 @@
 """Cover art for the post: a schematic of drag, storms and the solar cycle (dark, for g15n.net).
 
-Not a chart: a picture of the idea. One satellite starts high on the left; its possible fall
+Not a chart: a picture of the idea. A small satellite starts high on the left; its possible fall
 paths fan out (blue), from a strong Sun that pulls it into the swollen atmosphere in ~3.6 years to
 a weak one that lets it last ~10.5 (the 550 km, Jan 2035 case in data/fan.csv). The atmosphere
 (bottom glow) breathes slowly with the eleven-year cycle; storms are the brief orange spikes on
-top of it.
+top of it. The Sun sits in the corner as the driver; three small labels name the parts.
 
 Run:  pixi run python scripts/cover.py     -> figures/cover.png (site card) + figures/og.png (share)
 """
@@ -13,8 +13,10 @@ import sys
 from pathlib import Path
 
 import numpy as np
+from matplotlib import patches
 from matplotlib.collections import LineCollection
 from matplotlib.figure import Figure
+from matplotlib.transforms import Affine2D
 
 sys.path.insert(0, str(Path(__file__).parent))
 import style  # noqa: E402
@@ -26,8 +28,10 @@ CYAN = "#22d3ee"  # the site's grid accent
 BLUE = "#60a5fa"  # style.BLUE, lifted for a dark ground
 ORANGE = style.ORANGE
 T_STRONG, T_FORECAST, T_WEAK = 3.62, 7.79, 10.48  # years, 550 km from Jan 2035 (data/fan.csv)
-Y0, SCALE = 0.635, 0.05  # start height and "scale height" of the schematic atmosphere
+Y0, SCALE = 0.60, 0.047  # start height and "scale height" of the schematic atmosphere
 YEARS = 13.0
+MONO = "DejaVu Sans Mono"  # echoes the site's monospace accents
+LABEL = "#9fb3c8"
 
 
 def edge(t: np.ndarray) -> np.ndarray:
@@ -49,7 +53,7 @@ def fall(t: np.ndarray, lifetime: float) -> np.ndarray:
 
 def draw(fig, ax, t, ed, cyc) -> None:
     ax.set_facecolor(BG)
-    ax.set_xlim(-0.3, YEARS)
+    ax.set_xlim(-0.9, YEARS)
     ax.set_ylim(0.20, 0.90)
     ax.axis("off")
     # atmosphere: a limb glow, brightest at its top edge and fading with depth
@@ -90,20 +94,113 @@ def draw(fig, ax, t, ed, cyc) -> None:
             zorder=3,
         )
         ax.add_collection(lc)
-    # the satellite
-    for r, a in ((260, 0.08), (120, 0.18), (34, 1.0)):
-        ax.scatter([0], [Y0], s=r, color="white", alpha=a, lw=0, zorder=5)
+    satellite(fig, ax, 0.0, Y0)
+    sun(fig)
+    labels(ax, t, ed, cyc)
     # a few stars
     rng = np.random.default_rng(11)
-    sx, sy = rng.uniform(-0.3, YEARS, 110), rng.uniform(0.40, 0.90, 110)
+    sx, sy = rng.uniform(-0.9, YEARS, 110), rng.uniform(0.40, 0.90, 110)
     keep = sy > np.interp(sx, t, cyc) + 0.04
     ax.scatter(
         sx[keep], sy[keep], s=rng.uniform(0.5, 3.5, keep.sum()), color="white", alpha=0.35, lw=0
     )
 
 
+def _inset(fig, ax, x: float, y: float, size_in: float):
+    """An equal-aspect axes centred on data point (x, y), `size_in` inches wide."""
+    fx, fy = fig.transFigure.inverted().transform(ax.transData.transform((x, y)))
+    w, h = fig.get_size_inches()
+    sub = fig.add_axes((fx - size_in / w / 2, fy - size_in / h / 2, size_in / w, size_in / h))
+    sub.set_xlim(0, 1)
+    sub.set_ylim(0, 1)
+    sub.set_aspect("equal")
+    sub.axis("off")
+    sub.patch.set_alpha(0)
+    return sub
+
+
+def satellite(fig, ax, x: float, y: float) -> None:
+    """A small cartoon CubeSat: body, two solar wings, an antenna; tilted as if tumbling in."""
+    sub = _inset(fig, ax, x, y, 0.52)
+    tilt = Affine2D().rotate_deg_around(0.5, 0.5, -14) + sub.transData
+    for x0 in (0.02, 0.66):  # solar wings with a cell grid
+        sub.add_patch(
+            patches.Rectangle(
+                (x0, 0.40),
+                0.32,
+                0.20,
+                facecolor="#1d4ed8",
+                edgecolor="#93c5fd",
+                lw=0.9,
+                transform=tilt,
+            )
+        )
+        for k in (1, 2, 3):
+            sub.plot([x0 + 0.08 * k] * 2, [0.40, 0.60], color="#93c5fd", lw=0.5, transform=tilt)
+        sub.plot([x0, x0 + 0.32], [0.50, 0.50], color="#93c5fd", lw=0.5, transform=tilt)
+    sub.plot([0.34, 0.40], [0.5, 0.5], color="#cbd5e1", lw=1.2, transform=tilt)
+    sub.plot([0.60, 0.66], [0.5, 0.5], color="#cbd5e1", lw=1.2, transform=tilt)
+    sub.add_patch(
+        patches.FancyBboxPatch(
+            (0.40, 0.38),
+            0.20,
+            0.24,
+            boxstyle="round,pad=0,rounding_size=0.03",
+            facecolor="#e2e8f0",
+            edgecolor="#64748b",
+            lw=0.9,
+            transform=tilt,
+        )
+    )
+    sub.plot([0.5, 0.5], [0.62, 0.74], color="#cbd5e1", lw=1.0, transform=tilt)
+    sub.add_patch(patches.Circle((0.5, 0.76), 0.022, color=ORANGE, transform=tilt))
+
+
+def sun(fig) -> None:
+    """The driver, half off the top-right corner: a warm glow, no rays needed."""
+    w, h = fig.get_size_inches()
+    size = 0.8  # inches: the disc; the glow spills past the axes (clip_on=False)
+    cx, cy = 1 - 0.55 / w, 1 - 0.55 / h
+    sub = fig.add_axes((cx - size / w / 2, cy - size / h / 2, size / w, size / h), zorder=0)
+    sub.set_xlim(0, 1)
+    sub.set_ylim(0, 1)
+    sub.set_aspect("equal")
+    sub.axis("off")
+    sub.patch.set_alpha(0)
+    for r, a in zip(np.linspace(1.6, 0.36, 48), np.linspace(0.004, 0.035, 48), strict=True):
+        sub.add_patch(patches.Circle((0.5, 0.5), r, color="#fdba74", alpha=a, lw=0, clip_on=False))
+    sub.add_patch(patches.Circle((0.5, 0.5), 0.32, color="#fbbf24", lw=0, clip_on=False))
+
+
+def labels(ax, t, ed, cyc) -> None:
+    """Three quiet labels so the picture reads without the article."""
+    kw = dict(family=MONO, fontsize=9.5, color=LABEL, zorder=6)
+    ax.text(2.4, 0.603, "possible fall paths", ha="left", va="bottom", **kw)
+    x_atm = 4.4
+    ax.text(
+        x_atm,
+        np.interp(x_atm, t, cyc) - 0.03,
+        "atmosphere: swells with the Sun's 11-year cycle",
+        ha="left",
+        va="top",
+        **{**kw, "color": "#a5f3fc", "alpha": 0.85},
+    )
+    window = (t > 9.5) & (t < 12.8)
+    i = np.flatnonzero(window)[np.argmax((ed - cyc)[window])]
+    ax.annotate(
+        "storms",
+        (t[i], ed[i]),
+        xytext=(t[i] - 1.3, ed[i] + 0.06),
+        textcoords="data",
+        ha="right",
+        va="center",
+        arrowprops=dict(arrowstyle="-", color=LABEL, lw=0.7),
+        **kw,
+    )
+
+
 def main() -> None:
-    t = np.linspace(-0.3, YEARS, 4000)
+    t = np.linspace(-0.9, YEARS, 4000)
     ed, cyc = edge(t)
 
     fig = Figure(figsize=(12, 5), facecolor=BG)
