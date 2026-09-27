@@ -1,0 +1,37 @@
+name: reproduce
+
+# Every push re-checks that each number in the post still comes out of data/, that the
+# figures still build, and that the code lints. The orekit physics check pulls a ~1 GB data
+# checkout, so it only runs on demand (Actions tab -> reproduce -> Run workflow).
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  numbers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          cache: true
+          environments: default dev
+      - run: pixi run check          # downloads SILSO, recomputes every number in the post
+      - run: pixi run figures        # rebuilds the four figures
+      - run: pixi run -e dev ruff check scripts/
+      - run: pixi run -e dev ruff format --check scripts/
+
+  model:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          cache: true
+          environments: model
+      - run: pixi run -e model python scripts/fetch_data.py
+      - run: pixi run -e model python scripts/check_numbers.py
+      - run: pixi run -e model lifetime --altitude 550 --scale 1.25 --start 2035-01-16
