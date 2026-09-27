@@ -1,7 +1,8 @@
 # Solar drag is uninsurable
 
-Data and code behind the post **[Solar drag is uninsurable — and not because the risk is small](https://g15n.substack.com)**
-(g15n, 2026). Every number and figure in the post reproduces from this repository.
+Data and code behind the post **[Solar drag is uninsurable — and not because the risk is small](https://g15n.net/posts/solar-drag-uninsurable)**
+(g15n, 2026). The article itself is in [`paper/`](paper/) (markdown and PDF), and every number and
+figure in it reproduces from this repository.
 
 > Storms, the risk I set out to insure, move a small satellite's fall by weeks. The solar
 > cycle moves it by years, gives one data point every eleven years, and hits every satellite
