@@ -6,7 +6,7 @@ point of the fan without the rest of the research code:
 * orekit (Apache-2.0) via orekit-jpype, NRLMSISE-00 atmosphere, zonal gravity to J6;
 * semi-analytical DSST mean elements from the start altitude down to 300 km, then a numerical
   Cartesian propagation through the final spiral to the 78 km re-entry line;
-* solar input: the CelesTrak space-weather file shipped with orekit-data (pinned in
+* solar input: AGI's SpaceWeather-All file shipped with orekit-data (pinned in
   pixi.toml). Its predicted F10.7 above the 68.6 sfu quiet level is scaled by --scale for every
   future day (after the last observed day, 2026-06-03); the observed record and Ap are untouched.
 

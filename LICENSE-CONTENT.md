@@ -16,9 +16,9 @@ The code in `scripts/` is under the MIT licence (`LICENSE`).
 |---|---|---|
 | `fonts/Spectral-*.ttf` | Google Fonts / Production Type | SIL Open Font License 1.1 (`fonts/OFL.txt`) |
 | `data/karak_c25_predictions.csv` | Karak 2026, arXiv:2604.16183, Table 1 (values transcribed; cite the paper) | facts, cited |
-| `data/dst_storm_peaks.csv` | derived from hourly Dst, WDC for Geomagnetism, Kyoto | free for scientific use; acknowledge "WDC for Geomagnetism, Kyoto" |
+| `data/dst_storm_peaks.csv` | derived from hourly Dst (Jan 1957 to Apr 2026), WDC for Geomagnetism, Kyoto | free for scientific use; acknowledge "WDC for Geomagnetism, Kyoto" |
 | `data/leo_payloads_2026-08-28.csv` | subset of the CelesTrak SATCAT, 28 Aug 2026 | "Satellite catalogue data courtesy of CelesTrak (Dr. T.S. Kelso)" |
 | SILSO sunspot numbers (downloaded, not included) | WDC-SILSO, Royal Observatory of Belgium, Brussels | CC BY-NC 4.0 |
-| CelesTrak space-weather file (via orekit-data, not included) | CelesTrak, from NOAA/GFZ sources | "Space weather data courtesy of CelesTrak (Dr. T.S. Kelso)" |
+| SpaceWeather-All v1.2 (via orekit-data, not included) | Analytical Graphics, Inc. / Center for Space Standards & Innovation; forecast from NASA Marshall's mean cycle | credit AGI/CSSI and NASA MSFC |
 
 Figure 3 shows SILSO data, so reuse of that figure is non-commercial (CC BY-NC 4.0).

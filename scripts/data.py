@@ -6,7 +6,8 @@ Pinned in data/ (our own results, or small derived tables with attribution):
   storm_mc_550km.csv             100 simulated storm histories per case at 550 km, and
   storm_free_baselines_550km.csv the storm-free runs they are measured against
   karak_c25_predictions.csv      Karak 2026, Table 1: 128 numeric Cycle 25 peak forecasts
-  dst_storm_peaks.csv            intense storms (Dst < -100 nT), 1957-2022, from Kyoto Dst
+  dst_storm_peaks.csv            intense storms (Dst < -100 nT) behind the storm model,
+                                 Jan 1957 to Apr 2026, from Kyoto Dst
   leo_payloads_2026-08-28.csv    CelesTrak SATCAT subset: on-orbit payloads, perigee < 2,000 km
 
 Downloaded by scripts/fetch_data.py into data/raw/ (not redistributed here):

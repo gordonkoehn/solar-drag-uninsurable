@@ -43,14 +43,16 @@ lifetime numbers carry a few percent of engine uncertainty on top of everything 
 
 | Claim in the post | Data | Code |
 |---|---|---|
-| Storms bring a satellite at 550 km down 17 to 75 days sooner | `storm_mc_550km.csv`, `storm_free_baselines_550km.csv` | `data.storm_effect_days` |
-| The solar cycle moves it by 1,243 to 2,505 days; the band is 34–71× wider | `fan.csv` | `check_numbers.py`, `lifetime_one.py` |
+| At 550 km, typical storms bring a satellite down 17 days sooner (mission ends at solar minimum) or 75 days (maximum) | `storm_mc_550km.csv`, `storm_free_baselines_550km.csv` | `data.storm_effect_days` |
+| The Sun spreads the fall over a window 1,243 to 2,505 days wide, roughly 30–70× the storm effect | `fan.csv` | `check_numbers.py`, `lifetime_one.py` |
 | For a mission ending Jan 2035, the band straddles the 5-year line at ~520–560 km | `fan.csv` | `check_numbers.py` |
 | 106 of 128 forecasts too low; 28 of 29 in 2020–21; 14 of 16 in 2024 | `karak_c25_predictions.csv` | `check_numbers.py` |
 | 24 complete cycles since 1755, peaks 81–285, average 179, sd a third of it | SILSO (downloaded) | `data.cycle_peaks` |
 | In more than half of past cycles the peak missed the prior average by >25% | SILSO (downloaded) | `check_numbers.py` |
-| 367 intense storms (Dst < −100 nT) since 1957 | `dst_storm_peaks.csv` | `check_numbers.py` |
-| About a third (1,262 of 3,642) of smaller operators' satellites fly at 500–600 km | `leo_payloads_2026-08-28.csv` | `check_numbers.py` |
+| About 390 intense storms (Dst < −100 nT) in almost 70 years; 367 on Riley & Ben-Nun's window to 2022 | `dst_storm_peaks.csv` | `check_numbers.py` |
+| A miss on the strong side came in about one cycle in three | SILSO (downloaded) | `check_numbers.py` |
+| In radio flux the default forecast is about as weak as Cycle 24; 5 of 7 radio-era cycles beat the band's strong edge | orekit-data | `check_numbers.py` (model env) |
+| More than a third (1,262 of 3,451) of working satellites outside the megaconstellations fly at 500–600 km; about 280 of them government or military | `leo_payloads_2026-08-28.csv` | `check_numbers.py` |
 
 ## Method in brief
 
@@ -60,12 +62,13 @@ lifetime numbers carry a few percent of engine uncertainty on top of everything 
   weather (that check is in the research code, not reproduced here).
 - **Satellite:** circular orbit, 51.6° inclination, area-to-mass 0.014 m²/kg (the median 1U
   CubeSat in Lisy 2025), no propulsion. Decay depends on the spacecraft only through this ratio.
-- **Solar scenarios:** the CelesTrak space-weather file's predicted F10.7 above its 68.6 sfu
+- **Solar scenarios:** the predicted F10.7 in AGI's SpaceWeather-All file (as bundled with orekit)
+  above its 68.6 sfu
   quiet level, scaled ×0.75 and ×1.25 for every future day; the observed record (to 3 June 2026)
   and geomagnetic Ap are untouched. One common factor per scenario: a coherent scenario, not a
   probability band. Cycle timing stays at the file's fixed 11 years.
 - **Storm effect:** 100 simulated storm histories per case, drawn from an extreme-value fit to
-  hourly Kyoto Dst with a rate that follows the solar cycle; the effect is the median life lost
+  hourly Kyoto Dst (392 intense storms, Jan 1957 to Apr 2026) with a rate that follows the solar cycle; the effect is the median life lost
   against the storm-free run. The storm model itself is not part of this repository; its
   outputs are (`storm_mc_550km.csv`).
 - **Forecasts:** Karak 2026, Table 1; forecasts published up to 2015 scaled ×1.43 to sunspot
@@ -74,7 +77,8 @@ lifetime numbers carry a few percent of engine uncertainty on top of everything 
 ## Data sources and credit
 
 - Sunspot numbers: WDC-SILSO, Royal Observatory of Belgium, Brussels (CC BY-NC 4.0).
-- Space weather (F10.7, Ap): CelesTrak (Dr. T.S. Kelso), from NOAA/GFZ sources, via orekit-data.
+- Space weather (F10.7, Ap): SpaceWeather-All v1.2, Analytical Graphics, Inc. / Center for Space
+  Standards & Innovation, via orekit-data; its forecast section is NASA Marshall's mean cycle, repeated.
 - Geomagnetic storms: Dst index, WDC for Geomagnetism, Kyoto.
 - Satellite catalogue: CelesTrak (Dr. T.S. Kelso).
 - Cycle 25 forecasts: B. B. Karak (2026), Reviews of Modern Plasma Physics, arXiv:2604.16183, Table 1.

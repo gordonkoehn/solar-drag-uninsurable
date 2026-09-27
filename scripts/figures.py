@@ -77,12 +77,12 @@ def fig0():
         ("In-orbit", 1.9, 4.2, BLUE, "failure, radiation, debris; renewed yearly"),
         ("Third-party liability", 1.0, 4.2, MUTED, "damage to others, at launch and in orbit"),
         ("Space weather", 1.9, 4.2, BLUE_LIGHT, "parametric: storm disruption, radiation (2026)"),
-        ("Solar-cycle drag", 1.0, 5.3, None, "falls years early, or a dead one stays up too long"),
+        ("Solar-cycle drag", 1.9, 5.3, None, "falls years early, or a dead one stays up too long"),
     ]
     fig = Figure(figsize=(style.W, 4.9))
     header, footer = style.frame(
         fig,
-        "Every policy pays when something breaks.\nDrag breaks nothing.",
+        "Most policies pay when something breaks.\nDrag breaks nothing.",
         "What a satellite can insure, stage by stage (time not to scale)",
         "Sources: Lockton (policy types and terms), Orbway (space-weather cover, 2026).",
     )
@@ -184,7 +184,7 @@ def fig1():
         "its 68.6 sfu quiet level ×0.75 / ×1.25 for every future cycle; Ap unchanged. "
         "Storms: median of 100 simulated\n"
         "histories; orange dot enlarged (to scale it is thinner than the line). "
-        "Data: CelesTrak, WDC Kyoto.",
+        "Data: AGI SpaceWeather-All (via orekit), WDC Kyoto.",
     )
     ax = style.axes(fig, left=0.62, right=0.15, top=header + 0.2, bottom=footer + 0.5)
     z0, z1 = crossing(alt, weak, LIMIT), crossing(alt, strong, LIMIT)

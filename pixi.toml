@@ -23,7 +23,7 @@ openjdk = "21.*"
 
 [feature.model.pypi-dependencies]
 orekit-jpype = "==13.1.7.0"  # exact: 13.1.8 moves the 550 km result by ~30 days (see README)
-# pinned: this revision's CelesTrak space-weather file is the solar input behind data/fan.csv
+# pinned: this revision's SpaceWeather-All file (AGI/CSSI) is the solar input behind data/fan.csv
 orekitdata = { git = "https://gitlab.orekit.org/orekit/orekit-data.git", rev = "315cce51de50b277c8885eeb3877267a882d2740" }
 
 [feature.model.tasks]
