@@ -1,6 +1,7 @@
 # Licence for the text and figures
 
-The figures in `figures/` and the text of this repository's documentation are licensed under
+The article in `paper/` (text and PDF), the figures in `figures/` and the text of this
+repository's documentation are licensed under
 the **Creative Commons Attribution 4.0 International licence (CC BY 4.0)**:
 https://creativecommons.org/licenses/by/4.0/
 
@@ -16,9 +17,10 @@ The code in `scripts/` is under the MIT licence (`LICENSE`).
 |---|---|---|
 | `fonts/Spectral-*.ttf` | Google Fonts / Production Type | SIL Open Font License 1.1 (`fonts/OFL.txt`) |
 | `data/karak_c25_predictions.csv` | Karak 2026, arXiv:2604.16183, Table 1 (values transcribed; cite the paper) | facts, cited |
-| `data/dst_storm_peaks.csv` | derived from hourly Dst (Jan 1957 to Apr 2026), WDC for Geomagnetism, Kyoto | free for scientific use; acknowledge "WDC for Geomagnetism, Kyoto" |
+| `data/dst_storm_peaks.csv` | derived from hourly Dst (Jan 1957 to Apr 2026; final to 2020, provisional after), WDC for Geomagnetism, Kyoto; Nose et al. (2015), doi:10.17593/14515-74000 | scientific use only: WDC Kyoto does not allow commercial applications of the geomagnetic indices; acknowledge "WDC for Geomagnetism, Kyoto" and cite the data DOI |
 | `data/leo_payloads_2026-08-28.csv` | subset of the CelesTrak SATCAT, 28 Aug 2026 | "Satellite catalogue data courtesy of CelesTrak (Dr. T.S. Kelso)" |
-| SILSO sunspot numbers (downloaded, not included) | WDC-SILSO, Royal Observatory of Belgium, Brussels | CC BY-NC 4.0 |
+| SILSO sunspot numbers (downloaded, not included) | WDC-SILSO, Royal Observatory of Belgium, Brussels, doi:10.24414/qnza-ac80 | CC BY-NC 4.0; credit "Source: WDC-SILSO, Royal Observatory of Belgium, Brussels" |
 | SpaceWeather-All v1.2 (via orekit-data, not included) | Analytical Graphics, Inc. / Center for Space Standards & Innovation; forecast from NASA Marshall's mean cycle | credit AGI/CSSI and NASA MSFC |
 
-Figure 3 shows SILSO data, so reuse of that figure is non-commercial (CC BY-NC 4.0).
+Figure 3 shows SILSO data, so reuse of that figure is non-commercial (CC BY-NC 4.0). Likewise,
+`data/dst_storm_peaks.csv` may not be used commercially (WDC Kyoto terms).

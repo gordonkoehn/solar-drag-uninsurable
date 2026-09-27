@@ -77,10 +77,17 @@ lifetime numbers carry a few percent of engine uncertainty on top of everything 
 
 ## Data sources and credit
 
-- Sunspot numbers: WDC-SILSO, Royal Observatory of Belgium, Brussels (CC BY-NC 4.0).
+- Sunspot numbers: WDC-SILSO, Royal Observatory of Belgium, Brussels; Clette & Lefèvre (2015),
+  SILSO Sunspot Number V2.0, [doi:10.24414/qnza-ac80](https://doi.org/10.24414/qnza-ac80)
+  (CC BY-NC 4.0).
 - Space weather (F10.7, Ap): SpaceWeather-All v1.2, Analytical Graphics, Inc. / Center for Space
   Standards & Innovation, via orekit-data; its forecast section is NASA Marshall's mean cycle, repeated.
-- Geomagnetic storms: Dst index, WDC for Geomagnetism, Kyoto.
+- Geomagnetic storms: Dst index provided by the WDC for Geomagnetism, Kyoto; Nose, Iyemori,
+  Sugiura & Kamei (2015), Geomagnetic Dst index,
+  [doi:10.17593/14515-74000](https://doi.org/10.17593/14515-74000) (final to 2020, provisional
+  after). Scientific use only: WDC Kyoto does not allow commercial applications of its indices.
+- Atmosphere: NRLMSISE-00, Picone et al. (2002),
+  [doi:10.1029/2002JA009430](https://doi.org/10.1029/2002JA009430).
 - Satellite catalogue: CelesTrak (Dr. T.S. Kelso).
 - Cycle 25 forecasts: B. B. Karak (2026), Reviews of Modern Plasma Physics, arXiv:2604.16183, Table 1.
 

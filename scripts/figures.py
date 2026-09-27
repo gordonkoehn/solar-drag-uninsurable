@@ -296,7 +296,8 @@ def fig2():
         "Data: Karak 2026 (arXiv:2604.16183), Table 1; forecasts to 2015 scaled ×1.43 "
         "to sunspot number v2, as in the\n"
         "paper; dots spread at random within their year. "
-        "Actual peak and average: SILSO 13-month smoothed.",
+        "Actual peak and average (13-month smoothed):\n"
+        "WDC-SILSO, Royal Observatory of Belgium, Brussels, doi:10.24414/qnza-ac80.",
     )
     ax = style.axes(fig, left=0.62, right=0.95, top=header + 0.2, bottom=footer + 0.35)
     ax.axvspan(CYCLE25_START, 2025.0, color=ZONE, lw=0, zorder=0)
@@ -370,8 +371,8 @@ def fig3():
         fig,
         f"The Sun has dealt {len(complete)} complete cycles since 1755",
         "Sunspot number: monthly (grey), 13-month average (dark), a dot per cycle peak",
-        "Data: WDC-SILSO, Royal Observatory of Belgium, CC BY-NC 4.0 "
-        "(SN_m_tot_V2.0, SN_ms_tot_V2.0).",
+        "Source: WDC-SILSO, Royal Observatory of Belgium, Brussels, doi:10.24414/qnza-ac80. "
+        "CC BY-NC 4.0.",
     )
     ax = style.axes(fig, left=0.5, right=0.15, top=header + 0.2, bottom=footer + 0.35)
     ax.plot(

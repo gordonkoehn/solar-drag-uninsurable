@@ -1,9 +1,10 @@
 """Download the third-party data this repo does not redistribute, into data/raw/.
 
 * SILSO monthly and 13-month smoothed total sunspot number (v2.0).
-  Source: WDC-SILSO, Royal Observatory of Belgium, Brussels. Licence: CC BY-NC 4.0.
+  Source: WDC-SILSO, Royal Observatory of Belgium, Brussels, https://doi.org/10.24414/qnza-ac80.
+  Licence: CC BY-NC 4.0.
 * Optionally (--satcat) today's CelesTrak satellite catalogue, to compare with the pinned
-  August 2026 subset in data/. Source: CelesTrak (Dr. T.S. Kelso); attribution required.
+  August 2026 subset in data/. Source: CelesTrak (Dr. T.S. Kelso); credited as a courtesy.
 
 Run:  pixi run python scripts/fetch_data.py [--satcat]
 """
