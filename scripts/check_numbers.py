@@ -54,8 +54,9 @@ for e in ("min", "max"):
     band[e] = sooner + later
     one_sided += [sooner / storm[e], later / storm[e]]
 claim(
-    "the Sun spreads the fall over a window 1,243 to 2,505 days wide",
-    f"{band['min']:,.0f} / {band['max']:,.0f} d",
+    "the Sun spreads the fall over 3 y 5 mo to 6 y 10 mo (1,243 / 2,505 d)",
+    f"{band['min']:,.0f} / {band['max']:,.0f} d = "
+    + " / ".join(f"{int(b / 365.2425)} y {round(b / 365.2425 % 1 * 12)} mo" for b in band.values()),
     round(band["min"]) == 1243 and round(band["max"]) == 2505,
 )
 ratios = [band[e] / storm[e] for e in ("min", "max")]
